@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>District 2nd Bites & Brews - Premium Cafe Experience</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <i class="fas fa-coffee"></i>
+        <span>District 2nd</span>
+      </div>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#home" class="nav-link active-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#menu" class="nav-link">Menu</a></li>
+        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <section id="home" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title animate-fade-in">District 2nd</h1>
+      <p class="hero-subtitle animate-fade-in">Bites & Brews</p>
+      <p class="hero-description animate-fade-in">Where Every Sip Tells a Story & Every Bite Creates a Memory</p>
+      <div class="hero-buttons animate-fade-in">
+        <a href="#menu" class="btn btn-primary">Explore Menu</a>
+        <a href="#contact" class="btn btn-secondary">Visit Us</a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">About Us</h2>
+        <div class="title-underline"></div>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <h3>Welcome to District 2nd</h3>
+          <p>At District 2nd Bites & Brews, we believe in serving more than just food and drinks. We create experiences that bring people together. Our carefully crafted menu features the finest selection of fast food, beverages, and signature milkshakes that will tantalize your taste buds.</p>
+          <p>From our crispy burgers to our creamy milkshakes, every item is prepared with love and the finest ingredients. Whether you're here for a quick bite or a leisurely hangout with friends, District 2nd is your perfect destination.</p>
+          <div class="features">
+            <div class="feature-item">
+              <i class="fas fa-utensils"></i>
+              <h4>Fresh Ingredients</h4>
+              <p>Quality food made fresh daily</p>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-coffee"></i>
+              <h4>Signature Brews</h4>
+              <p>Crafted with perfection</p>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-heart"></i>
+              <h4>Made with Love</h4>
+              <p>Passion in every dish</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu" class="menu">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Our Menu</h2>
+        <div class="title-underline"></div>
+        <p class="section-subtitle">Discover Our Delicious Selection</p>
+      </div>
+
+      <div class="menu-filters">
+        <button class="filter-btn active" data-filter="all">All Items</button>
+        <button class="filter-btn" data-filter="fastfood">Fast Food</button>
+        <button class="filter-btn" data-filter="beverages">Beverages</button>
+        <button class="filter-btn" data-filter="shakes">Milk Shakes</button>
+      </div>
+
+      <div class="menu-grid" id="menuGrid">
+        <!-- menu items -->
+        <div class="menu-item" data-category="fastfood">
+          <div class="menu-item-image"> <i class="fas fa-hamburger"></i> </div>
+          <h3>Classic Burger</h3>
+          <p>Juicy beef patty with fresh veggies</p>
+          <span class="price">₹149</span>
+        </div>
+        <div class="menu-item" data-category="fastfood">
+          <div class="menu-item-image"> <i class="fas fa-burger"></i> </div>
+          <h3>Chicken Burger</h3>
+          <p>Crispy chicken with special sauce</p>
+          <span class="price">₹159</span>
+        </div>
+        <div class="menu-item" data-category="fastfood">
+          <div class="menu-item-image"> <i class="fas fa-bread-slice"></i> </div>
+          <h3>Veg Sandwich</h3>
+          <p>Fresh vegetables with mayo</p>
+          <span class="price">₹99</span>
+        </div>
+        <div class="menu-item" data-category="fastfood">
+          <div class="menu-item-image"> <i class="fas fa-drumstick-bite"></i> </div>
+          <h3>Chicken Sandwich</h3>
+          <p>Grilled chicken delight</p>
+          <span class="price">₹129</span>
+        </div>
+        <div class="menu-item" data-category="fastfood">
+          <div class="menu-item-image"> <i class="fas fa-french-fries"></i> </div>
+          <h3>French Fries</h3>
+          <p>Crispy golden fries</p>
+          <span class="price">₹79</span>
+        </div>
+        <div class="menu-item" data-category="fastfood">
+          <div class="menu-item-image"> <i class="fas fa-pepper-hot"></i> </div>
+          <h3>Peri Peri Fries</h3>
+          <p>Spicy seasoned fries</p>
+          <span class="price">₹99</span>
+        </div>
+        <div class="menu-item" data-category="beverages">
+          <div class="menu-item-image"> <i class="fas fa-mug-hot"></i> </div>
+          <h3>Hot Coffee</h3>
+          <p>Freshly brewed coffee</p>
+          <span class="price">₹79</span>
+        </div>
+        <div class="menu-item" data-category="beverages">
+          <div class="menu-item-image"> <i class="fas fa-coffee"></i> </div>
+          <h3>Cold Coffee</h3>
+          <p>Chilled coffee perfection</p>
+          <span class="price">₹99</span>
+        </div>
+        <div class="menu-item" data-category="beverages">
+          <div class="menu-item-image"> <i class="fas fa-leaf"></i> </div>
+          <h3>Green Tea</h3>
+          <p>Healthy and refreshing</p>
+          <span class="price">₹69</span>
+        </div>
+        <div class="menu-item" data-category="beverages">
+          <div class="menu-item-image"> <i class="fas fa-glass-water"></i> </div>
+          <h3>Lemon Tea</h3>
+          <p>Tangy and refreshing</p>
+          <span class="price">₹59</span>
+        </div>
+        <div class="menu-item" data-category="shakes">
+          <div class="menu-item-image"> <i class="fas fa-ice-cream"></i> </div>
+          <h3>Vanilla Shake</h3>
+          <p>Classic creamy vanilla</p>
+          <span class="price">₹129</span>
+        </div>
+        <div class="menu-item" data-category="shakes">
+          <div class="menu-item-image"> <i class="fas fa-cookie"></i> </div>
+          <h3>Chocolate Shake</h3>
+          <p>Rich chocolate indulgence</p>
+          <span class="price">₹139</span>
+        </div>
+        <div class="menu-item" data-category="shakes">
+          <div class="menu-item-image"> <i class="fas fa-strawberry"></i> </div>
+          <h3>Strawberry Shake</h3>
+          <p>Fresh strawberry delight</p>
+          <span class="price">₹139</span>
+        </div>
+        <div class="menu-item" data-category="shakes">
+          <div class="menu-item-image"> <i class="fas fa-cookie-bite"></i> </div>
+          <h3>Oreo Shake</h3>
+          <p>Cookies & cream perfection</p>
+          <span class="price">₹159</span>
+        </div>
+        <div class="menu-item" data-category="shakes">
+          <div class="menu-item-image"> <i class="fas fa-candy-cane"></i> </div>
+          <h3>Nutella Shake</h3>
+          <p>Hazelnut chocolate heaven</p>
+          <span class="price">₹169</span>
+        </div>
+        <div class="menu-item" data-category="shakes">
+          <div class="menu-item-image"> <i class="fas fa-crown"></i> </div>
+          <h3>KitKat Shake</h3>
+          <p>Crunchy chocolate treat</p>
+          <span class="price">₹169</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" class="gallery">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Gallery</h2>
+        <div class="title-underline"></div>
+        <p class="section-subtitle">A Glimpse of Our Delights</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <i class="fas fa-hamburger"></i>
+          <div class="gallery-overlay"> <h3>Burgers</h3> </div>
+        </div>
+        <div class="gallery-item">
+          <i class="fas fa-glass-whiskey"></i>
+          <div class="gallery-overlay"> <h3>Shakes</h3> </div>
+        </div>
+        <div class="gallery-item">
+          <i class="fas fa-coffee"></i>
+          <div class="gallery-overlay"> <h3>Coffee</h3> </div>
+        </div>
+        <div class="gallery-item">
+          <i class="fas fa-pizza-slice"></i>
+          <div class="gallery-overlay"> <h3>Snacks</h3> </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Visit Us</h2>
+        <div class="title-underline"></div>
+      </div>
+      <div class="contact-content">
+        <div class="contact-info">
+          <div class="info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <h3>Location</h3>
+              <p>District 2nd Bites & Brews</p>
+              <p>Hyderabad, Telangana, India</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-clock"></i>
+            <div>
+              <h3>Opening Hours</h3>
+              <p>Monday - Sunday</p>
+              <p>10:00 AM - 11:00 PM</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-phone"></i>
+            <div>
+              <h3>Contact</h3>
+              <p>Phone: +91 XXXXX XXXXX</p>
+              <p>Email: info@district2nd.com</p>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="contact-map">
+          <iframe
+            src="https://maps.google.com/maps?q=Hyderabad%20cafe&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            width="100%"
+            height="400"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <i class="fas fa-coffee"></i>
+          <span>District 2nd</span>
+        </div>
+        <p>© 2025 District 2nd Bites & Brews. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backToTop" class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>

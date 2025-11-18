@@ -1,0 +1,12 @@
+{
+  "name": "district2nd-cafe",
+  "version": "1.0.0",
+  "description": "District 2nd Bites & Brews — static site",
+  "main": "index.js",
+  "scripts": {
+    "build": "node scripts/build.js"
+  },
+  "author": "Aymk1209",
+  "license": "MIT",
+  "devDependencies": {}
+}
