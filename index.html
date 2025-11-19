@@ -2,76 +2,96 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>District 2nd Bites & Brews - Modern Cafe</title>
-    <!-- Load Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
-    <!-- Use Inter font --><link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Use Poppins for a modern, clean look, and Lora for the About section -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700;900&family=Lora:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+    
     <style>
-        /* Custom styles for the brand aesthetic */
+        /* Custom CSS Variables */
         :root {
-            --primary-color: #2F4B21; /* DEEP FOREST GREEN (Dark background color) */
-            --secondary-color: #FFFDD0; /* LIGHT CREAM/CORNSILK (Light color, used as per user request) */
-            --accent-color: #FFD700; /* Gold/Yellow (Kept for buttons/accents) */
-            --success-color: #006400; /* Deep Green (Kept for special button) */
+            --primary-color: #2F4B21; /* DEEP FOREST GREEN */
+            --secondary-color: #FFFDD0; /* LIGHT CREAM/CORNSILK */
+            --accent-color: #FFD700; /* Gold/Yellow */
+            --success-color: #006400; /* Deep Green */
         }
+        
+        /* Apply Poppins to all elements */
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Poppins', sans-serif;
             background-color: var(--secondary-color);
-            /* --- CHANGE: Setting body text color to #FFFDD0 as requested, will be fixed below --- */
-            color: var(--secondary-color); 
+            color: var(--secondary-color); /* This is corrected for text inside the Hero/Footer */
         }
-        /* --- FIX: Ensure good contrast on light background by explicitly coloring these sections black/dark green --- */
+
+        /* Ensure good contrast on light background */
         .readable-text {
-            color: #2F4B21; /* Explicitly use the dark green for readability on light backgrounds */
+            color: var(--primary-color); /* Explicitly use the dark green for readability on light backgrounds */
         }
+        
+        /* Font change for the 'Our Story' text for a classic feel */
+        .about-text {
+            font-family: 'Lora', serif;
+        }
+
+        /* Subtle Text Shadow for Hero */
         .text-shadow-custom {
-            /* Adjusted shadow color slightly for better contrast on light background */
-            text-shadow: 1px 1px 3px rgba(47, 75, 33, 0.6); 
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
         }
+
+        /* Logo Animation */
+        @keyframes subtle-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .logo-animate:hover {
+            animation: subtle-pulse 0.7s ease-in-out infinite alternate;
+        }
+
+        /* Menu Tab Styling */
         .menu-tab-active {
             border-bottom: 3px solid var(--accent-color);
-            color: #2F4B21; /* Must be dark for contrast */
+            color: var(--primary-color);
             font-weight: 600;
         }
         .menu-tab-inactive {
-            color: #A9A9A9; /* Dark Gray */
+            color: #A9A9A9;
             transition: all 0.3s ease;
         }
         .menu-tab-inactive:hover {
             color: var(--accent-color);
         }
+
         /* Ensure Hero Section background is darker for contrast */
         #home {
             background-color: var(--primary-color);
-        }
-        #home .text-shadow-custom {
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-        }
-        /* Custom styles for the logo if needed, though Tailwind classes handle most */
-        .logo-img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 0; /* Remove circular border if logo is not circular */
-            background-color: transparent; /* Assuming logo has its own background */
         }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- Header & Navigation --><header class="bg-secondary-color/95 sticky top-0 z-10 shadow-lg backdrop-blur-sm border-b-2" style="border-color:var(--primary-color);">
+    <!-- Header & Navigation -->
+    <header class="bg-secondary-color/95 sticky top-0 z-10 shadow-lg backdrop-blur-sm border-b-2" style="border-color:var(--primary-color);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
             
-            <!-- Logo and Brand Name --><a href="#home" class="flex items-center space-x-3 readable-text">
-                <!-- ACTUAL LOGO: Path assumes logo is in the same directory as index.html --><img src="district2nd_logo.png" alt="District 2nd Logo" class="logo-img shadow-md w-12 h-12">
-                <span class="text-3xl font-extrabold tracking-tight" style="color:#2F4B21;">District 2nd</span>
+            <!-- Logo and Brand Name -->
+            <a href="#home" class="flex items-center space-x-3 readable-text">
+                <!-- LOGO ANIMATION ADDED -->
+                <img src="district2nd_logo.png" alt="District 2nd Logo" class="logo-img shadow-md w-12 h-12 logo-animate">
+                <span class="text-3xl font-extrabold tracking-tight" style="color:var(--primary-color);">District 2nd</span>
             </a>
 
             <nav class="hidden md:flex space-x-8">
                 <a href="#home" class="text-lg font-medium hover:text-accent-color transition duration-300 readable-text">Home</a>
+                <a href="#about" class="text-lg font-medium hover:text-accent-color transition duration-300 readable-text">About Us</a>
                 <a href="#menu" class="text-lg font-medium hover:text-accent-color transition duration-300 readable-text">Menu</a>
                 <a href="#location" class="text-lg font-medium hover:text-accent-color transition duration-300 readable-text">Location</a>
             </nav>
-            <!-- Mobile Menu Placeholder --><button class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition duration-150 readable-text" aria-label="Toggle menu">
+            <!-- Mobile Menu Placeholder -->
+            <button class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition duration-150 readable-text" aria-label="Toggle menu">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </div>
@@ -79,11 +99,13 @@
 
     <main class="space-y-20 pb-20">
 
-        <!-- 1. Hero Section --><section id="home" class="relative overflow-hidden pt-16 md:pt-24 lg:pt-32" style="background-color:var(--primary-color);">
+        <!-- 1. Hero Section -->
+        <section id="home" class="relative overflow-hidden pt-16 md:pt-24 lg:pt-32" style="background-color:var(--primary-color);">
             <div class="absolute inset-0 bg-cover bg-center opacity-70" style="background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80');" aria-hidden="true"></div>
             <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 lg:py-48 text-center">
                 
-                <!-- Logo in Hero Section --><img src="district2nd_logo.png" alt="District 2nd Logo" class="logo-img shadow-2xl w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-6">
+                <!-- Logo in Hero Section (ANIMATION ADDED) -->
+                <img src="district2nd_logo.png" alt="District 2nd Logo" class="logo-img shadow-2xl w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-6 logo-animate">
                 
                 <h1 class="text-6xl sm:text-7xl lg:text-9xl font-black text-secondary-color uppercase tracking-tight text-shadow-custom mb-2">
                     DISTRICT 2ND
@@ -100,28 +122,42 @@
             </div>
         </section>
 
-        <!-- 3. Menu Section --><section id="menu" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- 2. About Us Section (NEW SECTION) -->
+        <section id="about" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center readable-text">
+            <h2 class="text-4xl font-bold mb-6" style="color:var(--primary-color);">Our Story & Mission</h2>
+            <p class="text-lg text-gray-700 leading-relaxed italic about-text p-4 bg-white/70 rounded-xl shadow-inner">
+                District 2nd was born from a simple dream: to create a cozy corner where **quality coffee** meets **delicious comfort food**. Established in 2023, our mission has always been to be more than just a cafe—we aim to be your second home, a place where every bite and every brew is crafted with genuine passion. From hand-selected beans to our sizzling fast-food favorites, we promise freshness and a warm, inviting atmosphere every time you step through our doors. We believe in great taste and a great space.
+            </p>
+        </section>
+
+        <!-- 3. Menu Section -->
+        <section id="menu" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-4xl font-bold text-center mb-10 readable-text">The Full Menu</h2>
 
-            <!-- Menu Tabs --><div class="flex flex-wrap justify-center space-x-2 sm:space-x-4 border-b border-gray-300 mb-8">
+            <!-- Menu Tabs (UPDATED: Momos & Snacks removed) -->
+            <div class="flex flex-wrap justify-center space-x-2 sm:space-x-4 border-b border-gray-300 mb-8">
                 <button data-category="fast_food" class="menu-tab text-lg py-3 px-4 sm:px-6 focus:outline-none menu-tab-active">Fast Food</button>
-                <button data-category="momos_snacks" class="menu-tab text-lg py-3 px-4 sm:px-6 focus:outline-none menu-tab-inactive">Momos & Snacks</button>
                 <button data-category="milkshakes" class="menu-tab text-lg py-3 px-4 sm:px-6 focus:outline-none menu-tab-inactive">Shakes & Drinks</button>
                 <button data-category="mojitos" class="menu-tab text-lg py-3 px-4 sm:px-6 focus:outline-none menu-tab-inactive">Mojito Bar</button>
             </div>
 
-            <!-- Menu Content Area --><div id="menu-content" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Menu items will be injected here by JavaScript --></div>
+            <!-- Menu Content Area -->
+            <div id="menu-content" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Menu items will be injected here by JavaScript -->
+            </div>
                 
         </section>
 
-        <!-- 4. Location and Contact Section --><section id="location" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white p-8 rounded-xl shadow-lg">
+        <!-- 4. Location and Contact Section -->
+        <section id="location" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white p-8 rounded-xl shadow-lg">
             <h2 class="text-4xl font-bold text-center mb-8 readable-text">Find Us</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
                 
-                <!-- Address/Contact --><div class="space-y-6">
+                <!-- Address/Contact -->
+                <div class="space-y-6">
                     
-                    <!-- Location Details --><div class="flex items-center space-x-4">
+                    <!-- Location Details -->
+                    <div class="flex items-center space-x-4">
                         <svg class="w-8 h-8 flex-shrink-0" style="color:var(--accent-color);" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.727A8 8 0 016.343 16.727L12 22l5.657-5.273z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13a3 3 0 100-6 3 3 0 000 6z"></path></svg>
                         <div>
                             <p class="text-xl font-semibold readable-text">Our Location</p>
@@ -130,7 +166,8 @@
                         </div>
                     </div>
 
-                    <!-- Contact Numbers --><div class="flex items-start space-x-4 pt-4 border-t border-gray-200">
+                    <!-- Contact Numbers -->
+                    <div class="flex items-start space-x-4 pt-4 border-t border-gray-200">
                         <svg class="w-8 h-8 flex-shrink-0" style="color:var(--accent-color);" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.717 21 3 14.283 3 6V5z"></path></svg>
                         <div>
                             <p class="text-xl font-semibold mb-2 readable-text">Call/Whatsapp Us</p>
@@ -139,13 +176,14 @@
                         </div>
                     </div>
                     
-                    <a href="https://maps.app.goo.gl/Khh9Dv2QbU1i57bm7" target="_blank" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-sm text-secondary-color" style="background-color:var(--primary-color); hover:background-color:#4a6839;" onmouseover="this.style.backgroundColor='#4a6839'" onmouseout="this.style.backgroundColor='var(--primary-color)'">
+                    <a href="https://maps.app.goo.gl/Khh9Dv2QbU1i57bm7" target="_blank" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-sm text-secondary-color" style="background-color:var(--primary-color);" onmouseover="this.style.backgroundColor='#4a6839'" onmouseout="this.style.backgroundColor='var(--primary-color)'">
                         Get Directions on Google Maps
                         <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </a>
                 </div>
 
-                <!-- Operating Hours Mockup --><div class="p-6 rounded-xl shadow-inner" style="background-color:var(--secondary-color);">
+                <!-- Operating Hours Mockup -->
+                <div class="p-6 rounded-xl shadow-inner" style="background-color:var(--secondary-color);">
                     <p class="text-2xl font-bold mb-4 readable-text">Operating Hours</p>
                     <ul class="space-y-2 text-lg text-gray-700">
                         <li class="flex justify-between border-b border-gray-200 pb-1 readable-text"><span>Mon - Fri:</span> <span class="font-medium">10:00 AM - 10:00 PM</span></li>
@@ -159,7 +197,8 @@
 
     </main>
 
-    <!-- Footer --><footer class="p-6 text-center" style="background-color:var(--primary-color); color:var(--secondary-color);">
+    <!-- Footer -->
+    <footer class="p-6 text-center" style="background-color:var(--primary-color); color:var(--secondary-color);">
         <p class="text-sm">&copy; <span id="current-year"></span> District 2nd Bites & Brews. All rights reserved.</p>
         <p class="text-xs mt-1">Built with passion and coffee.</p>
     </footer>
@@ -169,36 +208,30 @@
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
         // ----------------------------------------
-        // 1. Menu Data Structure 
+        // 1. Menu Data Structure (UPDATED) 
         // ----------------------------------------
         const menuData = {
             fast_food: [
                 // Veg Rice Items
-                { name: "Veg Fried Rice", price: "₹50", tags: ['Veg', 'Popular'] },
-                { name: "Veg Fried Noodles", price: "₹50", tags: ['Veg'] },
-                { name: "Jeera Rice", price: "₹60", tags: ['Veg'] },
-                { name: "Veg Manchuria", price: "₹70", tags: ['Veg', 'Starter'] },
-                { name: "Veg Manchuria Rice", price: "₹70", tags: ['Veg', 'Combo'] },
-                { name: "Veg Manchuria Noodles", price: "₹70", tags: ['Veg', 'Combo'] },
-                { name: "Veg Schezwan Rice", price: "₹70", tags: ['Veg', 'Spicy'] },
+                { name: "Veg Fried Rice", price: "₹50", description: "Classic Indo-Chinese fried rice tossed with fresh vegetables.", tags: ['Veg', 'Popular'] },
+                { name: "Veg Fried Noodles", price: "₹50", description: "Stir-fried noodles with a mix of crunchy garden vegetables.", tags: ['Veg'] },
+                { name: "Jeera Rice", price: "₹60", description: "Aromatic Basmati rice tossed with roasted cumin seeds.", tags: ['Veg'] },
+                { name: "Veg Manchuria", price: "₹70", description: "Crispy vegetable balls tossed in a tangy Manchurian sauce.", tags: ['Veg', 'Starter'] },
+                { name: "Veg Manchuria Rice", price: "₹70", description: "Manchurian gravy served with a side of steamed rice.", tags: ['Veg', 'Combo'] },
+                { name: "Veg Manchuria Noodles", price: "₹70", description: "Manchurian gravy served with a side of stir-fried noodles.", tags: ['Veg', 'Combo'] },
+                { name: "Veg Schezwan Rice", price: "₹70", description: "Spicy and flavorful rice tossed in fiery Schezwan sauce.", tags: ['Veg', 'Spicy'] },
                 
                 // Non-Veg Rice Items
-                { name: "Egg Fried Rice", price: "₹70", tags: ['Non-Veg', 'Egg'] },
-                { name: "Egg Noodles", price: "₹70", tags: ['Non-Veg', 'Egg'] },
-                { name: "Chicken Fried Rice", price: "₹80", tags: ['Non-Veg', 'Popular'] },
-                { name: "Chicken Noodles", price: "₹80", tags: ['Non-Veg'] },
-                { name: "Chicken Lollipop", price: "₹120", tags: ['Non-Veg', 'Starter'] }, // PRICE UPDATED
-                { name: "Chilli Chicken", price: "₹130", tags: ['Non-Veg', 'Spicy', 'Starter'] }, // NEW ITEM ADDED
+                { name: "Egg Fried Rice", price: "₹70", description: "Fried rice blended with scrambled egg and savory seasoning.", tags: ['Non-Veg', 'Egg'] },
+                { name: "Egg Noodles", price: "₹70", description: "Noodles stir-fried with scrambled egg and light sauces.", tags: ['Non-Veg', 'Egg'] },
+                { name: "Chicken Fried Rice", price: "₹80", description: "A generous serving of rice, egg, chicken, and fresh veggies.", tags: ['Non-Veg', 'Popular'] },
+                { name: "Chicken Noodles", price: "₹80", description: "Classic noodles with tender chicken pieces and sauces.", tags: ['Non-Veg'] },
+                { name: "Chicken Lollipop", price: "₹120", description: "Juicy, deep-fried chicken wings served with Schezwan dip.", tags: ['Non-Veg', 'Starter'] },
+                { name: "Chilli Chicken", price: "₹130", description: "Spicy chicken stir-fried with bell peppers, onions, and chili sauce.", tags: ['Non-Veg', 'Spicy', 'Starter'] },
                 { name: "Chicken Manchuria", price: "₹100", tags: ['Non-Veg', 'Gravy/Dry'] },
                 { name: "Chicken 65", price: "₹110", tags: ['Non-Veg', 'Spicy'] },
             ],
-            momos_snacks: [
-                { name: "Veg Momos", price: "₹50", tags: ['Veg'] },
-                { name: "Paneer Momos", price: "₹60", tags: ['Veg', 'Special'] },
-                { name: "Corn & Cheese Momos", price: "₹80", tags: ['Veg', 'Premium'] },
-                { name: "Chicken Momos", price: "₹90", tags: ['Non-Veg'] },
-                { name: "Veg Paneer Roll", price: "₹70", tags: ['Spring Rolls'] },
-            ],
+            // momos_snacks category has been removed
             milkshakes: [
                 // Milk Shakes @ 59/-
                 { name: "Oreo Milkshake", price: "₹59", tags: ['Regular', 'Popular'] },
@@ -225,8 +258,12 @@
                 { name: "Hazelnut & White Chocolate", price: "₹120", tags: ['Thickshake', 'New'] },
             ],
             mojitos: [
-                // Mojitos @ 69/-
-                { name: "Blue Mojito", price: "₹69", tags: ['Refreshing', 'Cool'] },
+                // NEW MOJITOS ADDED
+                { name: "Green Apple Mojito", price: "₹69", description: "Crisp green apple and fresh mint blended for a tangy, refreshing kick.", tags: ['Refreshing', 'New'] }, 
+                { name: "Chocolate Mojito", price: "₹69", description: "A surprising blend of rich chocolate, mint, and soda—a unique sweet twist!", tags: ['Sweet', 'Unique'] }, 
+                
+                // Existing Mojitos
+                { name: "Blue Mojito", price: "₹69", description: "Our signature blue drink, bursting with tropical citrus flavor.", tags: ['Refreshing', 'Cool'] },
                 { name: "Ginger - Lime Mojito", price: "₹69", tags: ['Refreshing', 'Zesty'] },
                 { name: "Lime Mint Mojito", price: "₹69", tags: ['Refreshing', 'Classic'] },
                 { name: "Virgin Mojito", price: "₹69", tags: ['Refreshing'] },
@@ -270,12 +307,16 @@
                     return `<span class="inline-block ${color} text-xs font-semibold px-3 py-1 rounded-full mr-2 mb-1">${tag}</span>`;
                 }).join('');
 
+                // NEW: Check for and include description
+                const descriptionHtml = item.description ? `<p class="text-sm text-gray-500 mt-1 mb-2 readable-text">${item.description}</p>` : '';
+
                 const itemHtml = `
                     <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
                         <div class="flex justify-between items-start">
                             <h3 class="text-xl font-bold readable-text">${item.name}</h3>
                             <span class="text-2xl font-extrabold ml-4" style="color:var(--accent-color);">${item.price}</span>
                         </div>
+                        ${descriptionHtml}
                         <div class="mt-3 flex flex-wrap">
                             ${tagsHtml}
                         </div>
