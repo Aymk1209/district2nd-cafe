@@ -1,297 +1,320 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>District 2nd Bites & Brews - Premium Cafe Experience</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="content="width=device-width, initial-scale=1.0">
+    <title>District 2nd Bites & Brews - Modern Cafe</title>
+    <!-- Load Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use Inter font --><link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for the brand aesthetic */
+        :root {
+            --primary-color: #2F4B21; /* DEEP FOREST GREEN (Dark background color) */
+            --secondary-color: #FFFDD0; /* LIGHT CREAM/CORNSILK (Light color, used as per user request) */
+            --accent-color: #FFD700; /* Gold/Yellow (Kept for buttons/accents) */
+            --success-color: #006400; /* Deep Green (Kept for special button) */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--secondary-color);
+            /* --- CHANGE: Setting body text color to #FFFDD0 as requested, will be fixed below --- */
+            color: var(--secondary-color); 
+        }
+        /* --- FIX: Ensure good contrast on light background by explicitly coloring these sections black/dark green --- */
+        .readable-text {
+            color: #2F4B21; /* Explicitly use the dark green for readability on light backgrounds */
+        }
+        .text-shadow-custom {
+            /* Adjusted shadow color slightly for better contrast on light background */
+            text-shadow: 1px 1px 3px rgba(47, 75, 33, 0.6); 
+        }
+        .menu-tab-active {
+            border-bottom: 3px solid var(--accent-color);
+            color: #2F4B21; /* Must be dark for contrast */
+            font-weight: 600;
+        }
+        .menu-tab-inactive {
+            color: #A9A9A9; /* Dark Gray */
+            transition: all 0.3s ease;
+        }
+        .menu-tab-inactive:hover {
+            color: var(--accent-color);
+        }
+        /* Ensure Hero Section background is darker for contrast */
+        #home {
+            background-color: var(--primary-color);
+        }
+        #home .text-shadow-custom {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+        /* Custom styles for the logo if needed, though Tailwind classes handle most */
+        .logo-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0; /* Remove circular border if logo is not circular */
+            background-color: transparent; /* Assuming logo has its own background */
+        }
+    </style>
 </head>
-<body>
-  <nav class="navbar" id="navbar">
-    <div class="nav-container">
-      <div class="logo">
-        <i class="fas fa-coffee"></i>
-        <span>District 2nd</span>
-      </div>
-      <ul class="nav-menu" id="navMenu">
-        <li><a href="#home" class="nav-link active-link">Home</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#menu" class="nav-link">Menu</a></li>
-        <li><a href="#gallery" class="nav-link">Gallery</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </nav>
+<body class="antialiased">
 
-  <section id="home" class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1 class="hero-title animate-fade-in">District 2nd</h1>
-      <p class="hero-subtitle animate-fade-in">Bites & Brews</p>
-      <p class="hero-description animate-fade-in">Where Every Sip Tells a Story & Every Bite Creates a Memory</p>
-      <div class="hero-buttons animate-fade-in">
-        <a href="#menu" class="btn btn-primary">Explore Menu</a>
-        <a href="#contact" class="btn btn-secondary">Visit Us</a>
-      </div>
-    </div>
-    <div class="scroll-indicator">
-      <i class="fas fa-chevron-down"></i>
-    </div>
-  </section>
+    <!-- Header & Navigation --><header class="bg-secondary-color/95 sticky top-0 z-10 shadow-lg backdrop-blur-sm border-b-2" style="border-color:var(--primary-color);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+            
+            <!-- Logo and Brand Name --><a href="#home" class="flex items-center space-x-3 readable-text">
+                <!-- ACTUAL LOGO: Path assumes logo is in the same directory as index.html --><img src="district2nd_logo.png" alt="District 2nd Logo" class="logo-img shadow-md w-12 h-12">
+                <span class="text-3xl font-extrabold tracking-tight" style="color:#2F4B21;">District 2nd</span>
+            </a>
 
-  <section id="about" class="about">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">About Us</h2>
-        <div class="title-underline"></div>
-      </div>
-      <div class="about-content">
-        <div class="about-text">
-          <h3>Welcome to District 2nd</h3>
-          <p>At District 2nd Bites & Brews, we believe in serving more than just food and drinks. We create experiences that bring people together. Our carefully crafted menu features the finest selection of fast food, beverages, and signature milkshakes that will tantalize your taste buds.</p>
-          <p>From our crispy burgers to our creamy milkshakes, every item is prepared with love and the finest ingredients. Whether you're here for a quick bite or a leisurely hangout with friends, District 2nd is your perfect destination.</p>
-          <div class="features">
-            <div class="feature-item">
-              <i class="fas fa-utensils"></i>
-              <h4>Fresh Ingredients</h4>
-              <p>Quality food made fresh daily</p>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="text-lg font-medium hover:text-accent-color transition duration-300 readable-text">Home</a>
+                <a href="#menu" class="text-lg font-medium hover:text-accent-color transition duration-300 readable-text">Menu</a>
+                <a href="#location" class="text-lg font-medium hover:text-accent-color transition duration-300 readable-text">Location</a>
+            </nav>
+            <!-- Mobile Menu Placeholder --><button class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition duration-150 readable-text" aria-label="Toggle menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="space-y-20 pb-20">
+
+        <!-- 1. Hero Section --><section id="home" class="relative overflow-hidden pt-16 md:pt-24 lg:pt-32" style="background-color:var(--primary-color);">
+            <div class="absolute inset-0 bg-cover bg-center opacity-70" style="background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80');" aria-hidden="true"></div>
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 lg:py-48 text-center">
+                
+                <!-- Logo in Hero Section --><img src="district2nd_logo.png" alt="District 2nd Logo" class="logo-img shadow-2xl w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-6">
+                
+                <h1 class="text-6xl sm:text-7xl lg:text-9xl font-black text-secondary-color uppercase tracking-tight text-shadow-custom mb-2">
+                    DISTRICT 2ND
+                </h1>
+                <h2 class="text-3xl sm:text-4xl lg:text-6xl font-bold text-secondary-color uppercase tracking-wide text-shadow-custom mb-4">
+                    Bites & Brews
+                </h2>
+                <p class="text-xl sm:text-2xl lg:text-3xl font-light italic text-secondary-color text-shadow-custom">
+                    "Freshly brewed happiness, one sip at a time"
+                </p>
+                <a href="#menu" class="mt-10 inline-block px-8 py-4 bg-accent-color text-primary-color text-lg font-semibold rounded-full shadow-xl hover:bg-yellow-500 transform hover:scale-105 transition duration-300 ease-in-out">
+                    Explore Our Menu
+                </a>
             </div>
-            <div class="feature-item">
-              <i class="fas fa-coffee"></i>
-              <h4>Signature Brews</h4>
-              <p>Crafted with perfection</p>
+        </section>
+
+        <!-- 3. Menu Section --><section id="menu" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-10 readable-text">The Full Menu</h2>
+
+            <!-- Menu Tabs --><div class="flex flex-wrap justify-center space-x-2 sm:space-x-4 border-b border-gray-300 mb-8">
+                <button data-category="fast_food" class="menu-tab text-lg py-3 px-4 sm:px-6 focus:outline-none menu-tab-active">Fast Food</button>
+                <button data-category="momos_snacks" class="menu-tab text-lg py-3 px-4 sm:px-6 focus:outline-none menu-tab-inactive">Momos & Snacks</button>
+                <button data-category="milkshakes" class="menu-tab text-lg py-3 px-4 sm:px-6 focus:outline-none menu-tab-inactive">Shakes & Drinks</button>
+                <button data-category="mojitos" class="menu-tab text-lg py-3 px-4 sm:px-6 focus:outline-none menu-tab-inactive">Mojito Bar</button>
             </div>
-            <div class="feature-item">
-              <i class="fas fa-heart"></i>
-              <h4>Made with Love</h4>
-              <p>Passion in every dish</p>
+
+            <!-- Menu Content Area --><div id="menu-content" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Menu items will be injected here by JavaScript --></div>
+                
+        </section>
+
+        <!-- 4. Location and Contact Section --><section id="location" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white p-8 rounded-xl shadow-lg">
+            <h2 class="text-4xl font-bold text-center mb-8 readable-text">Find Us</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                
+                <!-- Address/Contact --><div class="space-y-6">
+                    
+                    <!-- Location Details --><div class="flex items-center space-x-4">
+                        <svg class="w-8 h-8 flex-shrink-0" style="color:var(--accent-color);" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.727A8 8 0 016.343 16.727L12 22l5.657-5.273z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13a3 3 0 100-6 3 3 0 000 6z"></path></svg>
+                        <div>
+                            <p class="text-xl font-semibold readable-text">Our Location</p>
+                            <p class="text-gray-600">2nd High tension tower, Near, Jayalakshmi nagar</p>
+                            <p class="text-gray-600">Beeramguda, Ramachandrapuram, Telangana 502032</p>
+                        </div>
+                    </div>
+
+                    <!-- Contact Numbers --><div class="flex items-start space-x-4 pt-4 border-t border-gray-200">
+                        <svg class="w-8 h-8 flex-shrink-0" style="color:var(--accent-color);" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.717 21 3 14.283 3 6V5z"></path></svg>
+                        <div>
+                            <p class="text-xl font-semibold mb-2 readable-text">Call/Whatsapp Us</p>
+                            <a href="tel:+918639641452" class="block text-gray-600 hover:text-primary-color transition duration-200">+91 863 964 1452</a>
+                            <a href="tel:+917893715160" class="block text-gray-600 hover:text-primary-color transition duration-200">+91 78937 15160</a>
+                        </div>
+                    </div>
+                    
+                    <a href="https://maps.app.goo.gl/Khh9Dv2QbU1i57bm7" target="_blank" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-sm text-secondary-color" style="background-color:var(--primary-color); hover:background-color:#4a6839;" onmouseover="this.style.backgroundColor='#4a6839'" onmouseout="this.style.backgroundColor='var(--primary-color)'">
+                        Get Directions on Google Maps
+                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+
+                <!-- Operating Hours Mockup --><div class="p-6 rounded-xl shadow-inner" style="background-color:var(--secondary-color);">
+                    <p class="text-2xl font-bold mb-4 readable-text">Operating Hours</p>
+                    <ul class="space-y-2 text-lg text-gray-700">
+                        <li class="flex justify-between border-b border-gray-200 pb-1 readable-text"><span>Mon - Fri:</span> <span class="font-medium">10:00 AM - 10:00 PM</span></li>
+                        <li class="flex justify-between border-b border-gray-200 pb-1 readable-text"><span>Sat - Sun:</span> <span class="font-medium" style="color:var(--accent-color);">10:00 AM - 11:00 PM</span></li>
+                        <li class="flex justify-between pt-2 text-sm text-gray-500 readable-text"><span>*Hours may vary on public holidays.</span></li>
+                    </ul>
+                </div>
+
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+        </section>
 
-  <section id="menu" class="menu">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Our Menu</h2>
-        <div class="title-underline"></div>
-        <p class="section-subtitle">Discover Our Delicious Selection</p>
-      </div>
+    </main>
 
-      <div class="menu-filters">
-        <button class="filter-btn active" data-filter="all">All Items</button>
-        <button class="filter-btn" data-filter="fastfood">Fast Food</button>
-        <button class="filter-btn" data-filter="beverages">Beverages</button>
-        <button class="filter-btn" data-filter="shakes">Milk Shakes</button>
-      </div>
+    <!-- Footer --><footer class="p-6 text-center" style="background-color:var(--primary-color); color:var(--secondary-color);">
+        <p class="text-sm">&copy; <span id="current-year"></span> District 2nd Bites & Brews. All rights reserved.</p>
+        <p class="text-xs mt-1">Built with passion and coffee.</p>
+    </footer>
 
-      <div class="menu-grid" id="menuGrid">
-        <!-- menu items -->
-        <div class="menu-item" data-category="fastfood">
-          <div class="menu-item-image"> <i class="fas fa-hamburger"></i> </div>
-          <h3>Classic Burger</h3>
-          <p>Juicy beef patty with fresh veggies</p>
-          <span class="price">₹149</span>
-        </div>
-        <div class="menu-item" data-category="fastfood">
-          <div class="menu-item-image"> <i class="fas fa-burger"></i> </div>
-          <h3>Chicken Burger</h3>
-          <p>Crispy chicken with special sauce</p>
-          <span class="price">₹159</span>
-        </div>
-        <div class="menu-item" data-category="fastfood">
-          <div class="menu-item-image"> <i class="fas fa-bread-slice"></i> </div>
-          <h3>Veg Sandwich</h3>
-          <p>Fresh vegetables with mayo</p>
-          <span class="price">₹99</span>
-        </div>
-        <div class="menu-item" data-category="fastfood">
-          <div class="menu-item-image"> <i class="fas fa-drumstick-bite"></i> </div>
-          <h3>Chicken Sandwich</h3>
-          <p>Grilled chicken delight</p>
-          <span class="price">₹129</span>
-        </div>
-        <div class="menu-item" data-category="fastfood">
-          <div class="menu-item-image"> <i class="fas fa-french-fries"></i> </div>
-          <h3>French Fries</h3>
-          <p>Crispy golden fries</p>
-          <span class="price">₹79</span>
-        </div>
-        <div class="menu-item" data-category="fastfood">
-          <div class="menu-item-image"> <i class="fas fa-pepper-hot"></i> </div>
-          <h3>Peri Peri Fries</h3>
-          <p>Spicy seasoned fries</p>
-          <span class="price">₹99</span>
-        </div>
-        <div class="menu-item" data-category="beverages">
-          <div class="menu-item-image"> <i class="fas fa-mug-hot"></i> </div>
-          <h3>Hot Coffee</h3>
-          <p>Freshly brewed coffee</p>
-          <span class="price">₹79</span>
-        </div>
-        <div class="menu-item" data-category="beverages">
-          <div class="menu-item-image"> <i class="fas fa-coffee"></i> </div>
-          <h3>Cold Coffee</h3>
-          <p>Chilled coffee perfection</p>
-          <span class="price">₹99</span>
-        </div>
-        <div class="menu-item" data-category="beverages">
-          <div class="menu-item-image"> <i class="fas fa-leaf"></i> </div>
-          <h3>Green Tea</h3>
-          <p>Healthy and refreshing</p>
-          <span class="price">₹69</span>
-        </div>
-        <div class="menu-item" data-category="beverages">
-          <div class="menu-item-image"> <i class="fas fa-glass-water"></i> </div>
-          <h3>Lemon Tea</h3>
-          <p>Tangy and refreshing</p>
-          <span class="price">₹59</span>
-        </div>
-        <div class="menu-item" data-category="shakes">
-          <div class="menu-item-image"> <i class="fas fa-ice-cream"></i> </div>
-          <h3>Vanilla Shake</h3>
-          <p>Classic creamy vanilla</p>
-          <span class="price">₹129</span>
-        </div>
-        <div class="menu-item" data-category="shakes">
-          <div class="menu-item-image"> <i class="fas fa-cookie"></i> </div>
-          <h3>Chocolate Shake</h3>
-          <p>Rich chocolate indulgence</p>
-          <span class="price">₹139</span>
-        </div>
-        <div class="menu-item" data-category="shakes">
-          <div class="menu-item-image"> <i class="fas fa-strawberry"></i> </div>
-          <h3>Strawberry Shake</h3>
-          <p>Fresh strawberry delight</p>
-          <span class="price">₹139</span>
-        </div>
-        <div class="menu-item" data-category="shakes">
-          <div class="menu-item-image"> <i class="fas fa-cookie-bite"></i> </div>
-          <h3>Oreo Shake</h3>
-          <p>Cookies & cream perfection</p>
-          <span class="price">₹159</span>
-        </div>
-        <div class="menu-item" data-category="shakes">
-          <div class="menu-item-image"> <i class="fas fa-candy-cane"></i> </div>
-          <h3>Nutella Shake</h3>
-          <p>Hazelnut chocolate heaven</p>
-          <span class="price">₹169</span>
-        </div>
-        <div class="menu-item" data-category="shakes">
-          <div class="menu-item-image"> <i class="fas fa-crown"></i> </div>
-          <h3>KitKat Shake</h3>
-          <p>Crunchy chocolate treat</p>
-          <span class="price">₹169</span>
-        </div>
-      </div>
-    </div>
-  </section>
+    <script>
+        // Set the current year in the footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
 
-  <section id="gallery" class="gallery">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Gallery</h2>
-        <div class="title-underline"></div>
-        <p class="section-subtitle">A Glimpse of Our Delights</p>
-      </div>
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <i class="fas fa-hamburger"></i>
-          <div class="gallery-overlay"> <h3>Burgers</h3> </div>
-        </div>
-        <div class="gallery-item">
-          <i class="fas fa-glass-whiskey"></i>
-          <div class="gallery-overlay"> <h3>Shakes</h3> </div>
-        </div>
-        <div class="gallery-item">
-          <i class="fas fa-coffee"></i>
-          <div class="gallery-overlay"> <h3>Coffee</h3> </div>
-        </div>
-        <div class="gallery-item">
-          <i class="fas fa-pizza-slice"></i>
-          <div class="gallery-overlay"> <h3>Snacks</h3> </div>
-        </div>
-      </div>
-    </div>
-  </section>
+        // ----------------------------------------
+        // 1. Menu Data Structure 
+        // ----------------------------------------
+        const menuData = {
+            fast_food: [
+                // Veg Rice Items
+                { name: "Veg Fried Rice", price: "₹50", tags: ['Veg', 'Popular'] },
+                { name: "Veg Fried Noodles", price: "₹50", tags: ['Veg'] },
+                { name: "Jeera Rice", price: "₹60", tags: ['Veg'] },
+                { name: "Veg Manchuria", price: "₹70", tags: ['Veg', 'Starter'] },
+                { name: "Veg Manchuria Rice", price: "₹70", tags: ['Veg', 'Combo'] },
+                { name: "Veg Manchuria Noodles", price: "₹70", tags: ['Veg', 'Combo'] },
+                { name: "Veg Schezwan Rice", price: "₹70", tags: ['Veg', 'Spicy'] },
+                
+                // Non-Veg Rice Items
+                { name: "Egg Fried Rice", price: "₹70", tags: ['Non-Veg', 'Egg'] },
+                { name: "Egg Noodles", price: "₹70", tags: ['Non-Veg', 'Egg'] },
+                { name: "Chicken Fried Rice", price: "₹80", tags: ['Non-Veg', 'Popular'] },
+                { name: "Chicken Noodles", price: "₹80", tags: ['Non-Veg'] },
+                { name: "Chicken Lollipop", price: "₹120", tags: ['Non-Veg', 'Starter'] }, // PRICE UPDATED
+                { name: "Chilli Chicken", price: "₹130", tags: ['Non-Veg', 'Spicy', 'Starter'] }, // NEW ITEM ADDED
+                { name: "Chicken Manchuria", price: "₹100", tags: ['Non-Veg', 'Gravy/Dry'] },
+                { name: "Chicken 65", price: "₹110", tags: ['Non-Veg', 'Spicy'] },
+            ],
+            momos_snacks: [
+                { name: "Veg Momos", price: "₹50", tags: ['Veg'] },
+                { name: "Paneer Momos", price: "₹60", tags: ['Veg', 'Special'] },
+                { name: "Corn & Cheese Momos", price: "₹80", tags: ['Veg', 'Premium'] },
+                { name: "Chicken Momos", price: "₹90", tags: ['Non-Veg'] },
+                { name: "Veg Paneer Roll", price: "₹70", tags: ['Spring Rolls'] },
+            ],
+            milkshakes: [
+                // Milk Shakes @ 59/-
+                { name: "Oreo Milkshake", price: "₹59", tags: ['Regular', 'Popular'] },
+                { name: "Vanilla Milkshake", price: "₹59", tags: ['Regular'] },
+                { name: "Chocolate Milkshake", price: "₹59", tags: ['Regular'] },
+                { name: "KitKat Milkshake", price: "₹59", tags: ['Regular'] },
+                { name: "Strawberry Milkshake", price: "₹59", tags: ['Regular'] },
+                { name: "Butterscotch Milkshake", price: "₹59", tags: ['Regular'] },
+                { name: "Rose Milk", price: "₹59", tags: ['Regular'] },
+                
+                // Special Milkshakes @ 99/-
+                { name: "Dates Milkshake", price: "₹99", tags: ['Special', 'Healthy'] },
+                { name: "Nutella Milkshake", price: "₹99", tags: ['Special', 'Must Try'] },
+                { name: "Black Currant Milkshake", price: "₹99", tags: ['Special'] },
+                { name: "Choco-Coffee Milkshake", price: "₹99", tags: ['Special'] },
+                { name: "Caramel Milkshake", price: "₹99", tags: ['Special'] },
 
-  <section id="contact" class="contact">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Visit Us</h2>
-        <div class="title-underline"></div>
-      </div>
-      <div class="contact-content">
-        <div class="contact-info">
-          <div class="info-item">
-            <i class="fas fa-map-marker-alt"></i>
-            <div>
-              <h3>Location</h3>
-              <p>District 2nd Bites & Brews</p>
-              <p>Hyderabad, Telangana, India</p>
-            </div>
-          </div>
-          <div class="info-item">
-            <i class="fas fa-clock"></i>
-            <div>
-              <h3>Opening Hours</h3>
-              <p>Monday - Sunday</p>
-              <p>10:00 AM - 11:00 PM</p>
-            </div>
-          </div>
-          <div class="info-item">
-            <i class="fas fa-phone"></i>
-            <div>
-              <h3>Contact</h3>
-              <p>Phone: +91 XXXXX XXXXX</p>
-              <p>Email: info@district2nd.com</p>
-            </div>
-          </div>
-          <div class="social-links">
-            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-          </div>
-        </div>
-        <div class="contact-map">
-          <iframe
-            src="https://maps.google.com/maps?q=Hyderabad%20cafe&t=&z=13&ie=UTF8&iwloc=&output=embed"
-            width="100%"
-            height="400"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy">
-          </iframe>
-        </div>
-      </div>
-    </div>
-  </section>
+                // Thickshakes @ 120/-
+                { name: "Dry Fruit Thickshake", price: "₹120", tags: ['Thickshake', 'Premium'] },
+                { name: "Ferrero-Rocher Thickshake", price: "₹120", tags: ['Thickshake', 'Premium'] },
+                { name: "Belgium Dark Chocolate", price: "₹120", tags: ['Thickshake', 'Rich'] },
+                { name: "KitKat Chocochip", price: "₹120", tags: ['Thickshake', 'Crunchy'] },
+                { name: "Nutella Brownie", price: "₹120", tags: ['Thickshake', 'Decadent'] },
+                { name: "Hazelnut & White Chocolate", price: "₹120", tags: ['Thickshake', 'New'] },
+            ],
+            mojitos: [
+                // Mojitos @ 69/-
+                { name: "Blue Mojito", price: "₹69", tags: ['Refreshing', 'Cool'] },
+                { name: "Ginger - Lime Mojito", price: "₹69", tags: ['Refreshing', 'Zesty'] },
+                { name: "Lime Mint Mojito", price: "₹69", tags: ['Refreshing', 'Classic'] },
+                { name: "Virgin Mojito", price: "₹69", tags: ['Refreshing'] },
+                { name: "Nannari", price: "₹69", tags: ['Traditional', 'Cooling'] },
+                { name: "Strawberry Mojito", price: "₹69", tags: ['Fruity', 'Sweet'] },
+            ]
+        };
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-logo">
-          <i class="fas fa-coffee"></i>
-          <span>District 2nd</span>
-        </div>
-        <p>© 2025 District 2nd Bites & Brews. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+        // ----------------------------------------
+        // 2. Dynamic Menu Tab Rendering Logic 
+        // ----------------------------------------
 
-  <button id="backToTop" class="back-to-top">
-    <i class="fas fa-arrow-up"></i>
-  </button>
+        const menuContentEl = document.getElementById('menu-content');
+        const menuTabs = document.querySelectorAll('.menu-tab');
+        let currentCategory = 'fast_food'; // Default category
 
-  <script src="script.js"></script>
+        /**
+         * Renders the menu items for the given category.
+         * @param {string} category - The key for the menuData object (e.g., 'fast_food').
+         */
+        function renderMenu(category) {
+            const items = menuData[category] || [];
+            menuContentEl.innerHTML = ''; // Clear existing content
+
+            if (items.length === 0) {
+                menuContentEl.innerHTML = '<p class="text-center col-span-full text-gray-500">No items available for this category yet.</p>';
+                return;
+            }
+
+            items.forEach(item => {
+                const tagsHtml = item.tags.map(tag => {
+                    let color = 'bg-gray-200 text-gray-600';
+                    if (tag === 'Popular' || tag === 'Must Try' || tag === 'Trending' || tag === 'Premium') {
+                        // Use the new accent color for popular tags
+                        color = 'bg-accent-color text-primary-color'; 
+                    } else if (tag === 'Veg') {
+                        color = 'bg-green-100 text-green-700';
+                    } else if (tag === 'Non-Veg') {
+                        color = 'bg-red-100 text-red-700';
+                    }
+                    return `<span class="inline-block ${color} text-xs font-semibold px-3 py-1 rounded-full mr-2 mb-1">${tag}</span>`;
+                }).join('');
+
+                const itemHtml = `
+                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-xl font-bold readable-text">${item.name}</h3>
+                            <span class="text-2xl font-extrabold ml-4" style="color:var(--accent-color);">${item.price}</span>
+                        </div>
+                        <div class="mt-3 flex flex-wrap">
+                            ${tagsHtml}
+                        </div>
+                    </div>
+                `;
+                menuContentEl.insertAdjacentHTML('beforeend', itemHtml);
+            });
+        }
+
+        /**
+         * Handles the tab click event, updates state, and re-renders the menu.
+         * @param {Event} event - The click event.
+         */
+        function handleTabClick(event) {
+            const newCategory = event.currentTarget.dataset.category;
+
+            // Update active state for buttons
+            menuTabs.forEach(tab => {
+                tab.classList.remove('menu-tab-active');
+                tab.classList.add('menu-tab-inactive');
+            });
+            event.currentTarget.classList.add('menu-tab-active');
+            event.currentTarget.classList.remove('menu-tab-inactive');
+            
+            // Render new menu content
+            currentCategory = newCategory;
+            renderMenu(currentCategory);
+        }
+
+        // Attach event listeners to tabs
+        menuTabs.forEach(tab => {
+            tab.addEventListener('click', handleTabClick);
+        });
+
+        // Initial render on load
+        window.onload = () => {
+            renderMenu(currentCategory);
+        };
+    </script>
+
 </body>
 </html>
